@@ -62,33 +62,44 @@ namespace ProxyCenter
             try
             {
                 var content = await client.DownloadStringTaskAsync("http://www.baidu.com");
-                proxyIp.Status= string.IsNullOrEmpty(content) ? "不可用" : "可用";
+                proxyIp.Status = string.IsNullOrEmpty(content) ? "不可用" : "可用";
             }
             catch
             {
                 proxyIp.Status = "不可用";
             }
+            this.PrintIp(IpList);
+            //lock (lockObj)
+            //{
+            //    counter++;
+            //    if (counter > 10)
+            //    {
+
+            //    }
+            //    counter = 0;
+            //}
+        }
+
+        private void PrintIp(List<ProxyIpEntity> ipList)
+        {
             lock (lockObj)
             {
                 counter++;
                 if (counter > 10)
                 {
-                     this.PrintIp(IpList);
+                    LvIp.Items.Clear();
+                    LvIp.Items.AddRange(ipList.Select(x => new ListViewItem(new[] { x.Ip, x.Port.ToString(), x.Address, x.Status }, -1)).ToArray());
+                    counter = 0;
                 }
-                counter = 0;
             }
+
         }
 
-        private void PrintIp(List<ProxyIpEntity> ipList)
-        {
-            LvIp.Items.Clear();
-            LvIp.Items.AddRange(ipList.Select(x => new ListViewItem(new[] { x.Ip, x.Port.ToString(), x.Address, x.Status },-1)).ToArray());
-        }
 
         private void PrintIp(ProxyIpEntity proxyIp)
         {
             IpList.Add(proxyIp);
-            ListViewItem lvi = new ListViewItem(new[] { proxyIp.Ip, proxyIp.Port.ToString(), proxyIp.Address }, -1);
+            ListViewItem lvi = new ListViewItem(new[] { proxyIp.Ip, proxyIp.Port.ToString(), proxyIp.Address, proxyIp.Status }, -1);
             LvIp.Items.Add(lvi);
         }
 
@@ -145,11 +156,12 @@ namespace ProxyCenter
         private void BtnExport_Click(object sender, EventArgs e)
         {
             var builder = new StringBuilder();
-            foreach(var ip in IpList.Where(x=>x.Status.Equals("可用")))
+            foreach (var ip in IpList.Where(x => x.Status.Equals("可用")))
             {
-                builder.AppendFormat("{0}:{1} {2}{3}", ip.Ip, ip.Port, ip.Address,Environment.NewLine);
+                builder.AppendFormat("{0}:{1} {2}{3}", ip.Ip, ip.Port, ip.Address, Environment.NewLine);
             }
-            File.WriteAllText("D;/proxyIpList.txt",builder.ToString());
+            File.WriteAllText(@"D:\proxyIpList.txt", builder.ToString());
+            this.PrintLog("可用Ip数据已导出到D:\\proxyIpList.txt。");
         }
     }
 }
