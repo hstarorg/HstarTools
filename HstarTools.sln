@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyCenter", "ProxyCenter\ProxyCenter.csproj", "{DD239F0F-C027-46E8-852F-3DD50C6C6A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{0B14EB1D-410E-400D-A4D3-AB52E4DB5559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HstarToolCenter", "HstarToolCenter\HstarToolCenter.csproj", "{117C0380-A1CA-4C09-A7C1-30942CF9B2B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{DD239F0F-C027-46E8-852F-3DD50C6C6A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD239F0F-C027-46E8-852F-3DD50C6C6A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD239F0F-C027-46E8-852F-3DD50C6C6A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B14EB1D-410E-400D-A4D3-AB52E4DB5559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B14EB1D-410E-400D-A4D3-AB52E4DB5559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B14EB1D-410E-400D-A4D3-AB52E4DB5559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B14EB1D-410E-400D-A4D3-AB52E4DB5559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117C0380-A1CA-4C09-A7C1-30942CF9B2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117C0380-A1CA-4C09-A7C1-30942CF9B2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117C0380-A1CA-4C09-A7C1-30942CF9B2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117C0380-A1CA-4C09-A7C1-30942CF9B2B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
